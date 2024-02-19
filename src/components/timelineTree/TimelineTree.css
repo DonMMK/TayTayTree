@@ -10,3 +10,26 @@
 
 
 /* Add other styling as needed */
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.hover-button {
+    background-color: #FFB6C1;
+    /* Set your desired color */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Add smooth transition on hover */
+}
+
+.hover-button:hover {
+    background-color: #FF66A2;
+    /* Change color on hover */
+}

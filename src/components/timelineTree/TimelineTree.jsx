@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useRef} from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
@@ -15,26 +15,71 @@ import fearless from '../assets/fearless.jpg';
 import midnights from '../assets/midnights.jpg';
 
 
+// Define handleButtonClick outside of the timelineTree component
+const handleButtonClick = (buttonName) => {
+  // Define the action you want to perform when a button is clicked
+  console.log(`Button clicked: ${buttonName}`);
+  // You can perform any action or state update based on the button click
+};
 
+const VideoTimelineElement = () => {
+  const playerRef = useRef(null);
+
+  // Function to start playing the video
+  const playVideo = () => {
+    if (playerRef.current) {
+      playerRef.current.playVideo();
+    }
+  };
+
+  // Function to pause the video
+  const pauseVideo = () => {
+    if (playerRef.current) {
+      playerRef.current.pauseVideo();
+    }
+  };
+}
 
 export function timelineTree() {
   return (
     <div className="timeline-wrapper">
       <VerticalTimeline>
-
       <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(100,121,147,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Midnights</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={midnights} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
+      contentArrowStyle={{ borderRight: '7px solid rgb(100,121,147,255)' }}
+      date="2011 - present"
+      iconStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
+      icon={<MusicNoteIcon />}
+      onMouseEnter={VideoTimelineElement.playVideo}  // Start playing the video on hover
+      onMouseLeave={VideoTimelineElement.pauseVideo} // Pause the video when the mouse leaves
+    >
+      <h3 className="vertical-timeline-element-title">Midnights</h3>
+      <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
+      <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
+      <img src={midnights} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
+  
+      <div className="buttons-container">
+        <button className="hover-button" onClick={() => handleButtonClick('Button 1')}>
+          Button 1
+        </button>
+        <button className="hover-button" onClick={() => handleButtonClick('Button 2')}>
+          Button 2
+        </button>
+      </div>
+  
+      {/* Embed the YouTube video */}
+      <div className="youtube-player">
+        <iframe
+          ref={VideoTimelineElement.playerRef}
+          title="Taylor Swift YouTube Video"
+          src={`https://www.youtube.com/embed/VuNIsY6JdUw?autoplay=0&enablejsapi=1`}  // Replace with your video ID
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </VerticalTimelineElement>
 
 
       <VerticalTimelineElement
