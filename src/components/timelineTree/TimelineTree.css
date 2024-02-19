@@ -1,0 +1,12 @@
+.timeline-wrapper {
+    background: linear-gradient(to right, #FFB6C1, #FF66A2);
+    /* Lighter pinkish gradient background */
+    min-height: 100vh;
+    /* Adjust this based on your layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Add other styling as needed */
