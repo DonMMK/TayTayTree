@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+.discography-header {
+    background: linear-gradient(to right, #FFB6C1, #FF66A2);
+    color: white;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px;
+}
