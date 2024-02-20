@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import 'react-vertical-timeline-component/style.min.css';
 import './TimelineTree.css';
 import taylorswift from '../assets/taylorswift.jpg';
 import evermore from '../assets/evermore.jpg';
@@ -14,166 +14,228 @@ import speaknow from '../assets/speaknow.jpg';
 import fearless from '../assets/fearless.jpg';
 import midnights from '../assets/midnights.jpg';
 
+const AlbumTimelineElement = ({ albumInfo }) => {
+  const [currentVideo, setCurrentVideo] = useState('');
+
+  const handleButtonClick = (videoUrl) => {
+    setCurrentVideo(videoUrl);
+  };
+
+  // Function to change button color on hover
+  const handleMouseEnter = (event, color) => {
+    event.target.style.backgroundColor = color;
+  };
+
+  // Function to revert button color when mouse leaves
+  const handleMouseLeave = (event, color) => {
+    event.target.style.backgroundColor = color;
+  };
+
+  return (
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: albumInfo.background, color: '#fff' }}
+      contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
+      date="2011 - present"
+      iconStyle={{ background: albumInfo.background, color: '#fff' }}
+      icon={<MusicNoteIcon />}
+    >
+      <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
+      <img src={albumInfo.cover} alt="Album Cover" style={{ width: '40%', height: '40%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
+      <div className="buttons-container">
+        {albumInfo.videos.map((video, index) => (
+          <button
+            key={index}
+            className="hover-button"
+            onClick={() => handleButtonClick(video.url)}
+            style={{ backgroundColor: albumInfo.buttonColor }}
+            onMouseEnter={(e) => handleMouseEnter(e, albumInfo.buttonHoverColor)}
+            onMouseLeave={(e) => handleMouseLeave(e, albumInfo.buttonColor)}
+          >
+            {video.name}
+          </button>
+        ))}
+      </div>
+      {currentVideo && (
+        <div className="youtube-player">
+          <iframe
+            title="YouTube Video"
+            src={currentVideo}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
+    </VerticalTimelineElement>
+  );
+};
 
 
+const albumsData = [
+  {
+    title: 'Midnights',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: midnights,
+    background: 'rgb(100,121,147,255)',
+    buttonColor: 'rgb(120, 141, 167)', // Default button background color
+    buttonHoverColor: 'rgb(80, 101, 127)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  // Add more album objects with similar structure here...
+  {
+    title: 'Evermore',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: evermore,
+    background: 'rgba(188,111,75,255)',
+    buttonColor: 'rgb(239, 162, 126)', // Default button background color
+    buttonHoverColor: 'rgb(137, 60, 24)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Folklore',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: folklore,
+    background: 'rgb(172,164,164)',
+    buttonColor: 'rgb(223, 215, 215)', // Default button background color
+    buttonHoverColor: 'rgb(121, 113, 113)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Lover',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: lover,
+    background: 'rgba(116,154,175,255)',
+    buttonColor: 'rgb(167, 205, 226)', // Default button background color
+    buttonHoverColor: 'rgb(65, 103, 124)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Reputation',
+    // subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: reputation,
+    background: 'rgb(108,116,115)',
+    buttonColor: 'rgb(159, 167, 166)', // Default button background color
+    buttonHoverColor: 'rgb(57, 65, 64)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: '1989',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: taylorswift1989,
+    background: 'rgb(138,139,140)',
+    buttonColor: 'rgb(189, 190, 191)', // Default button background color
+    buttonHoverColor: 'rgb(87, 88, 89)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Red',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: red,
+    background: 'rgba(193,34,22,255)',
+    buttonColor: 'rgb(244, 85, 73)', // Default button background color
+    buttonHoverColor: 'rgb(142, 0, 0)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Speak Now',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: speaknow,
+    background: 'rgb(75,8,110,255)',
+    buttonColor: 'rgb(126, 59, 161)', // Default button background color
+    buttonHoverColor: 'rgb(24, 0, 59)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Fearless',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: fearless,
+    background: 'rgb(170,149,124)',
+    buttonColor: 'rgb(221, 200, 175)', // Default button background color
+    buttonHoverColor: 'rgb(119, 98, 73)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+  {
+    title: 'Taylor Swift',
+    subtitle: 'Miami, FL',
+    description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
+    cover: taylorswift,
+    background: 'rgba(56,90,65,255)',
+    buttonColor: 'rgb(107, 141, 116)', // Default button background color
+    buttonHoverColor: 'rgb(5, 39, 14)', // Button hover background color
+    videos: [
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+    ],
+  },
+];
 
-export function timelineTree() {
+const TimelineTree = () => {
   return (
     <div className="timeline-wrapper">
       <VerticalTimeline>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(100,121,147,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(100,121,147,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Midnights</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={midnights} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgba(188,111,75,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgba(188,111,75,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgba(188,111,75,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Evermore</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={evermore} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(172,164,164)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(172,164,164)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(172,164,164)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Folklore</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={folklore} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(230,172,150)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(230,172,150)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(230,172,150)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Lover</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={lover} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(108,116,115)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(108,116,115)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(108,116,115)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Reputation</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={reputation} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(138,139,140)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(138,139,140)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(138,139,140)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">1989</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={taylorswift1989} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgba(193,34,22,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgba(193,34,22,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgba(193,34,22,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Red</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={red} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(75,8,110,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(75,8,110,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(75,8,110,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Speak Now</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={speaknow} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgb(170,149,124)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgb(170,149,124)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgb(170,149,124)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Fearless</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={fearless} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        contentStyle={{ background: 'rgba(56,90,65,255)', color: '#fff' }}
-        contentArrowStyle={{ borderRight: '7px solid rgba(56,90,65,255)' }}
-        date="2011 - present"
-        iconStyle={{ background: 'rgba(56,90,65,255)', color: '#fff' }}
-        icon={<MusicNoteIcon />}
-      >
-        <h3 className="vertical-timeline-element-title">Taylor Swift</h3>
-        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-        <p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
-        <img src={taylorswift} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
-      </VerticalTimelineElement>
-
-
-    </VerticalTimeline>
+        {albumsData.map((albumInfo, index) => (
+          <AlbumTimelineElement key={index} albumInfo={albumInfo} />
+        ))}
+      </VerticalTimeline>
     </div>
   );
-}
+};
 
-export default timelineTree;
-
+export default TimelineTree;
