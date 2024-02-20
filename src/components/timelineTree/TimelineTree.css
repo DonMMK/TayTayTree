@@ -1,5 +1,5 @@
 .timeline-wrapper {
-    background: linear-gradient(to right, #FFB6C1, #FF66A2);
+    background: linear-gradient(to right, #f0cdc0, #cc917c);
     /* Lighter pinkish gradient background */
     min-height: 100vh;
     /* Adjust this based on your layout */
@@ -27,7 +27,7 @@
 }
 
 .hover-button {
-    background-color: #FFB6C1;
+    background-color: #f0cdc0;
     /* Set your desired color */
     color: white;
     padding: 8px 16px;
@@ -39,7 +39,7 @@
 }
 
 .hover-button:hover {
-    background-color: #FF66A2;
+    background-color: #e6ac96;
     /* Change color on hover */
 }
 

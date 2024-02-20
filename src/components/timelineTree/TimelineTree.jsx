@@ -23,37 +23,36 @@ const AlbumTimelineElement = ({ albumInfo }) => {
 
   return (
     <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    contentStyle={{ background: albumInfo.background, color: '#fff' }}
-    contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
-    date="2011 - present"
-    iconStyle={{ background: albumInfo.background, color: '#fff' }}
-    icon={<MusicNoteIcon />}
-  >
-    <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
-    <img src={albumInfo.cover} alt="Album Cover" style={{ width: '40%', height: '40%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
-    {/* <p>{albumInfo.description}</p> */}
+      className="vertical-timeline-element--work"
+      contentStyle={{ background: albumInfo.background, color: '#fff' }}
+      contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
+      date="2011 - present"
+      iconStyle={{ background: albumInfo.background, color: '#fff' }}
+      icon={<MusicNoteIcon />}
+    >
+      <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
+      <img src={albumInfo.cover} alt="Album Cover" style={{ width: '40%', height: '40%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
 
-    <div className="buttons-container">
-      {albumInfo.videos.map((video, index) => (
-        <button key={index} className="hover-button" onClick={() => handleButtonClick(video.url)}>
-          Video {index + 1}
-        </button>
-      ))}
-    </div>
-
-    {currentVideo && (
-      <div className="youtube-player">
-        <iframe
-          title="YouTube Video"
-          src={currentVideo}
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+      <div className="buttons-container">
+        {albumInfo.videos.map((video, index) => (
+          <button key={index} className="hover-button" onClick={() => handleButtonClick(video.url)}>
+            {video.name}
+          </button>
+        ))}
       </div>
-    )}
-  </VerticalTimelineElement>
+
+      {currentVideo && (
+        <div className="youtube-player">
+          <iframe
+            title="YouTube Video"
+            src={currentVideo}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
+    </VerticalTimelineElement>
   );
 };
 
@@ -65,8 +64,10 @@ const albumsData = [
     cover: midnights,
     background: 'rgb(100,121,147,255)',
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   // Add more album objects with similar structure here...
@@ -77,8 +78,8 @@ const albumsData = [
     cover: evermore,
     background: 'rgba(188,111,75,255)',
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Evermore', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: '', url: 'https://www.youtube.com/embed/exampleVideoId2' },
     ],
   },
   {
@@ -97,7 +98,7 @@ const albumsData = [
     subtitle: 'Miami, FL',
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: lover,
-    background: 'rgb(230,172,150)',
+    background: 'rgba(116,154,175,255)',   
     videos: [
       { url: 'https://www.youtube.com/embed/exampleVideoId1' },
       { url: 'https://www.youtube.com/embed/exampleVideoId2' },
