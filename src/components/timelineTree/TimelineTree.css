@@ -33,3 +33,34 @@
     background-color: #FF66A2;
     /* Change color on hover */
 }
+
+/* TimelineTree.css */
+.vertical-timeline-element img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents unwanted spacing */
+  }
+
+
+/* TimelineTree.css */
+@media (max-width: 768px) {
+    .vertical-timeline-element-title,
+    .vertical-timeline-element-subtitle {
+      font-size: smaller; /* Adjust text sizes for smaller screens */
+    }
+
+    .vertical-timeline-element--work .vertical-timeline-element-content {
+      padding: 15px; /* Reduce padding */
+    }
+
+    .buttons-container button {
+      padding: 5px; /* Smaller buttons */
+      margin: 2px; /* Less space between buttons */
+      font-size: smaller; /* Smaller button text */
+    }
+
+    .youtube-player iframe {
+      width: 100%; /* Full width videos */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }
