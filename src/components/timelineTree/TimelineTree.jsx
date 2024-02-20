@@ -21,6 +21,16 @@ const AlbumTimelineElement = ({ albumInfo }) => {
     setCurrentVideo(videoUrl);
   };
 
+  // Function to change button color on hover
+  const handleMouseEnter = (event, color) => {
+    event.target.style.backgroundColor = color;
+  };
+
+  // Function to revert button color when mouse leaves
+  const handleMouseLeave = (event, color) => {
+    event.target.style.backgroundColor = color;
+  };
+
   return (
     <VerticalTimelineElement
       className="vertical-timeline-element--work"
@@ -32,15 +42,20 @@ const AlbumTimelineElement = ({ albumInfo }) => {
     >
       <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
       <img src={albumInfo.cover} alt="Album Cover" style={{ width: '40%', height: '40%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
-
       <div className="buttons-container">
         {albumInfo.videos.map((video, index) => (
-          <button key={index} className="hover-button" onClick={() => handleButtonClick(video.url)}>
+          <button
+            key={index}
+            className="hover-button"
+            onClick={() => handleButtonClick(video.url)}
+            style={{ backgroundColor: albumInfo.buttonColor }}
+            onMouseEnter={(e) => handleMouseEnter(e, albumInfo.buttonHoverColor)}
+            onMouseLeave={(e) => handleMouseLeave(e, albumInfo.buttonColor)}
+          >
             {video.name}
           </button>
         ))}
       </div>
-
       {currentVideo && (
         <div className="youtube-player">
           <iframe
@@ -56,6 +71,7 @@ const AlbumTimelineElement = ({ albumInfo }) => {
   );
 };
 
+
 const albumsData = [
   {
     title: 'Midnights',
@@ -63,6 +79,8 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: midnights,
     background: 'rgb(100,121,147,255)',
+    buttonColor: 'rgb(120, 141, 167)', // Default button background color
+    buttonHoverColor: 'rgb(80, 101, 127)', // Button hover background color
     videos: [
       { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
       { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
@@ -77,9 +95,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: evermore,
     background: 'rgba(188,111,75,255)',
+    buttonColor: 'rgb(239, 162, 126)', // Default button background color
+    buttonHoverColor: 'rgb(137, 60, 24)', // Button hover background color
     videos: [
-      { name: 'Evermore', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: '', url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -88,9 +110,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: folklore,
     background: 'rgb(172,164,164)',
+    buttonColor: 'rgb(223, 215, 215)', // Default button background color
+    buttonHoverColor: 'rgb(121, 113, 113)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -98,10 +124,14 @@ const albumsData = [
     subtitle: 'Miami, FL',
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: lover,
-    background: 'rgba(116,154,175,255)',   
+    background: 'rgba(116,154,175,255)',
+    buttonColor: 'rgb(167, 205, 226)', // Default button background color
+    buttonHoverColor: 'rgb(65, 103, 124)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -110,9 +140,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: reputation,
     background: 'rgb(108,116,115)',
+    buttonColor: 'rgb(159, 167, 166)', // Default button background color
+    buttonHoverColor: 'rgb(57, 65, 64)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -121,9 +155,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: taylorswift1989,
     background: 'rgb(138,139,140)',
+    buttonColor: 'rgb(189, 190, 191)', // Default button background color
+    buttonHoverColor: 'rgb(87, 88, 89)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -132,9 +170,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: red,
     background: 'rgba(193,34,22,255)',
+    buttonColor: 'rgb(244, 85, 73)', // Default button background color
+    buttonHoverColor: 'rgb(142, 0, 0)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -143,9 +185,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: speaknow,
     background: 'rgb(75,8,110,255)',
+    buttonColor: 'rgb(126, 59, 161)', // Default button background color
+    buttonHoverColor: 'rgb(24, 0, 59)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -154,9 +200,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: fearless,
     background: 'rgb(170,149,124)',
+    buttonColor: 'rgb(221, 200, 175)', // Default button background color
+    buttonHoverColor: 'rgb(119, 98, 73)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -165,9 +215,13 @@ const albumsData = [
     description: 'Creative Direction, User Experience, Visual Design, Project Management, Team Leading',
     cover: taylorswift,
     background: 'rgba(56,90,65,255)',
+    buttonColor: 'rgb(107, 141, 116)', // Default button background color
+    buttonHoverColor: 'rgb(5, 39, 14)', // Button hover background color
     videos: [
-      { url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
 ];
