@@ -23,38 +23,37 @@ const AlbumTimelineElement = ({ albumInfo }) => {
 
   return (
     <VerticalTimelineElement
-      className="vertical-timeline-element--work"
-      contentStyle={{ background: albumInfo.background, color: '#fff' }}
-      contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
-      date="2011 - present"
-      iconStyle={{ background: albumInfo.background, color: '#fff' }}
-      icon={<MusicNoteIcon />}
-    >
-      <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
-      <h4 className="vertical-timeline-element-subtitle">{albumInfo.subtitle}</h4>
-      <p>{albumInfo.description}</p>
-      <img src={albumInfo.cover} alt="Album Cover" style={{ width: '20%', height: '20%' }} />
+    className="vertical-timeline-element--work"
+    contentStyle={{ background: albumInfo.background, color: '#fff' }}
+    contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
+    date="2011 - present"
+    iconStyle={{ background: albumInfo.background, color: '#fff' }}
+    icon={<MusicNoteIcon />}
+  >
+    <h3 className="vertical-timeline-element-title">{albumInfo.title}</h3>
+    <img src={albumInfo.cover} alt="Album Cover" style={{ width: '40%', height: '40%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
+    {/* <p>{albumInfo.description}</p> */}
 
-      <div className="buttons-container">
-        {albumInfo.videos.map((video, index) => (
-          <button key={index} className="hover-button" onClick={() => handleButtonClick(video.url)}>
-            Video {index + 1}
-          </button>
-        ))}
+    <div className="buttons-container">
+      {albumInfo.videos.map((video, index) => (
+        <button key={index} className="hover-button" onClick={() => handleButtonClick(video.url)}>
+          Video {index + 1}
+        </button>
+      ))}
+    </div>
+
+    {currentVideo && (
+      <div className="youtube-player">
+        <iframe
+          title="YouTube Video"
+          src={currentVideo}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
-
-      {currentVideo && (
-        <div className="youtube-player">
-          <iframe
-            title="YouTube Video"
-            src={currentVideo}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
-    </VerticalTimelineElement>
+    )}
+  </VerticalTimelineElement>
   );
 };
 
