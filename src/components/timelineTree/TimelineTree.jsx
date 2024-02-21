@@ -36,7 +36,7 @@ const AlbumTimelineElement = ({ albumInfo }) => {
       className="vertical-timeline-element--work"
       contentStyle={{ background: albumInfo.background, color: '#fff' }}
       contentArrowStyle={{ borderRight: `7px solid ${albumInfo.background}` }}
-      date="2011 - present"
+      // date="2011 - present"
       iconStyle={{ background: albumInfo.background, color: '#fff' }}
       icon={<MusicNoteIcon />}
     >
@@ -82,10 +82,12 @@ const albumsData = [
     buttonColor: 'rgb(120, 141, 167)', // Default button background color
     buttonHoverColor: 'rgb(80, 101, 127)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/Odh9ddPUkEY' },
       { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
       { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Karma', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'You’re On Your Own, Kid', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   // Add more album objects with similar structure here...
@@ -98,10 +100,12 @@ const albumsData = [
     buttonColor: 'rgb(239, 162, 126)', // Default button background color
     buttonHoverColor: 'rgb(137, 60, 24)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Evermore', url: 'https://youtu.be/EXLgZZE072g' },
+      { name: '"Tis the Damn Season',url: 'https://youtu.be/WuvhOD-mP8M' },
+      { name: 'Ivy', url: 'https://youtu.be/9nIOx-ezlzA'},
+      { name: 'Coney Island', url: 'https://youtu.be/c_p_TBaHvos'},
+      { name: 'Gold Rush', url: 'https://youtu.be/Pz-f9mM3Ms8'},
+      { name: 'Willow', url: 'https://youtu.be/7EvwIw4gIyk'},
     ],
   },
   {
@@ -113,10 +117,12 @@ const albumsData = [
     buttonColor: 'rgb(223, 215, 215)', // Default button background color
     buttonHoverColor: 'rgb(121, 113, 113)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Invisible String Cardigan', url: 'https://youtu.be/OuFnpmGwg5k' },
+      { name: 'Mirrorball',url: 'https://youtu.be/KaM1bCuG4xo' },
+      { name: 'Seven', url: 'https://youtu.be/pEY-GPsru_E'},
+      { name: 'Cardigan', url: 'https://youtu.be/K-a8s8OLBSE'},
+      { name: 'This is Me Trying', url: 'https://youtu.be/9bdLTPNrlEg'},
+      { name: 'August', url: 'https://youtu.be/nn_0zPAfyo8'},
     ],
   },
   {
@@ -128,10 +134,12 @@ const albumsData = [
     buttonColor: 'rgb(167, 205, 226)', // Default button background color
     buttonHoverColor: 'rgb(65, 103, 124)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'The Archer', url: 'https://youtu.be/8KpKc3C9V3w' },
+      { name: 'Death by a Thousand Cuts', url: 'https://youtu.be/2wFrvmq_DSk' },
+      { name: 'Lover', url: 'https://youtu.be/-BjZmE2gtdo'},
+      { name: 'Cruel Summer', url: 'https://youtu.be/ic8j13piAhQ'},
+      { name: 'Daylight', url: 'https://youtu.be/u9raS7-NisU'},
+      { name: 'Paper Rings', url: 'https://youtu.be/8zdg-pDF10g'},
     ],
   },
   {
@@ -143,9 +151,11 @@ const albumsData = [
     buttonColor: 'rgb(159, 167, 166)', // Default button background color
     buttonHoverColor: 'rgb(57, 65, 64)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Dont Blame Me', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Delicate',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Look What You Made Me Do', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Gateway Car', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
@@ -158,10 +168,12 @@ const albumsData = [
     buttonColor: 'rgb(189, 190, 191)', // Default button background color
     buttonHoverColor: 'rgb(87, 88, 89)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Blank Space', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Style',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Out Of the Woods', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Shake It Off', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bad Blood', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Wildest Dreams', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -173,10 +185,12 @@ const albumsData = [
     buttonColor: 'rgb(244, 85, 73)', // Default button background color
     buttonHoverColor: 'rgb(142, 0, 0)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Red', url: 'https://youtu.be/Zlot0i3Zykw' },
+      { name: 'I Knew You Were Trouble',url: 'https://youtu.be/vNoKguSdy4Y' },
+      { name: 'All Too Well', url: 'https://youtu.be/tollGa3S0o8'},
+      { name: '22', url: 'https://youtu.be/AgFeZr5ptV8'},
+      { name: 'We Are Never Ever Getting Back Together', url: 'https://youtu.be/WA4iX5D9Z64'},
+      { name: 'Starlight', url: 'https://youtu.be/U9twJCpM-t0'},
     ],
   },
   {
@@ -188,10 +202,12 @@ const albumsData = [
     buttonColor: 'rgb(126, 59, 161)', // Default button background color
     buttonHoverColor: 'rgb(24, 0, 59)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Back To December', url: 'https://www.youtube.com/embed/QUwxKWT6m7U' },
+      { name: 'Speak Now',url: 'https://youtu.be/JlZnvyBqceY' },
+      { name: 'Innocent', url: 'https://youtu.be/vO6JqQpJboY'},
+      { name: 'The Story of Us', url: 'https://youtu.be/pRhWAXg4xek'},
+      { name: 'Enchanted', url: 'https://youtu.be/igIfiqqVHtA'},
+      { name: 'Dear John', url: 'https://youtu.be/N-FYySSy0rM'},
     ],
   },
   {
@@ -203,10 +219,12 @@ const albumsData = [
     buttonColor: 'rgb(221, 200, 175)', // Default button background color
     buttonHoverColor: 'rgb(119, 98, 73)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Love Story', url: 'https://youtu.be/aXzVF3XeS8M' },
+      { name: 'You Belong With Me',url: 'https://youtu.be/vwp8Ur6tO-8' },
+      { name: 'White Horse', url: 'https://youtu.be/9-rKvhsjwKU'},
+      { name: 'Fearless', url: 'https://youtu.be/7lLigiVgJsE'},
+      { name: 'Fifteen', url: 'https://youtu.be/rLCol1C3ouc'},
+      { name: 'Forever and Always', url: 'https://youtu.be/T-41vMWQTUA'},
     ],
   },
   {
@@ -218,14 +236,16 @@ const albumsData = [
     buttonColor: 'rgb(107, 141, 116)', // Default button background color
     buttonHoverColor: 'rgb(5, 39, 14)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Teardrops On My Guitar', url: 'https://youtu.be/xKCek6_dB0M?si=0wqXnq4Oz9ky3Tak' },
+      { name: 'Tim McGraw',url: 'https://youtu.be/GkD20ajVxnY?si=ngGPlcpi6NG7jtTS' },
+      { name: 'Should’ve Said No', url: 'https://www.youtube.com/embed/dUisZV--Nbs?list=PLms6tEsuHQ1IzUjpdc07vTdq_RK35J2V3'},
+      { name: 'I’m Only Me When I’m With You', url: 'https://youtu.be/AlTfYj7q5gQ?si=TzGpU6vakE4zHEVF'},
+      { name: 'Cold As You', url: 'https://youtu.be/SoXPvCcFibo?si=r20Y9DHoft2Qt8Cd'},
+      { name: 'A Place In This World', url: 'https://youtu.be/pYFqLzFoHo0?si=6yP-YNXZe7POVdEp'},
+      
     ],
   },
 ];
-
 const TimelineTree = () => {
   return (
     <div className="timeline-wrapper">
