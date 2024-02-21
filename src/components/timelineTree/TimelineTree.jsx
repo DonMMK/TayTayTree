@@ -86,6 +86,8 @@ const albumsData = [
       { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
       { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   // Add more album objects with similar structure here...
@@ -98,9 +100,11 @@ const albumsData = [
     buttonColor: 'rgb(239, 162, 126)', // Default button background color
     buttonHoverColor: 'rgb(137, 60, 24)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Evermore', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Willow',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Long Story Short', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Closure', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
@@ -113,9 +117,11 @@ const albumsData = [
     buttonColor: 'rgb(223, 215, 215)', // Default button background color
     buttonHoverColor: 'rgb(121, 113, 113)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Cardigan', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'This is Me Trying',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Invisible String', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'August', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
@@ -128,9 +134,11 @@ const albumsData = [
     buttonColor: 'rgb(167, 205, 226)', // Default button background color
     buttonHoverColor: 'rgb(65, 103, 124)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'The Archer', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Cruel Summer',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Lover', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Daylight', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
@@ -143,9 +151,11 @@ const albumsData = [
     buttonColor: 'rgb(159, 167, 166)', // Default button background color
     buttonHoverColor: 'rgb(57, 65, 64)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Dont Blame Me', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Delicate',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Look What You Made Me Do', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Gateway Car', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
       { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
@@ -158,10 +168,12 @@ const albumsData = [
     buttonColor: 'rgb(189, 190, 191)', // Default button background color
     buttonHoverColor: 'rgb(87, 88, 89)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Blank Space', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Style',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Out Of the Woods', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Shake It Off', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Bad Blood', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Wildest Dreams', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -173,10 +185,12 @@ const albumsData = [
     buttonColor: 'rgb(244, 85, 73)', // Default button background color
     buttonHoverColor: 'rgb(142, 0, 0)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Red', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'I Knew You Were Trouble',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'All Too Well', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: '22', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'We Are Never Ever Getting Back Together', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Starlight', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
@@ -188,10 +202,12 @@ const albumsData = [
     buttonColor: 'rgb(126, 59, 161)', // Default button background color
     buttonHoverColor: 'rgb(24, 0, 59)', // Button hover background color
     videos: [
-      { name: 'Midnight rain', url: 'https://www.youtube.com/embed/exampleVideoId1' },
-      { name: 'Anti-Hero',url: 'https://www.youtube.com/embed/exampleVideoId2' },
-      { name: 'Maroon', url: 'https://www.youtube.com/embed/exampleVideoId3'},
-      { name: 'Bejeweled', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Back To December', url: 'https://www.youtube.com/embed/exampleVideoId1' },
+      { name: 'Back To December',url: 'https://www.youtube.com/embed/exampleVideoId2' },
+      { name: 'Back To December', url: 'https://www.youtube.com/embed/exampleVideoId3'},
+      { name: 'Back To December', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Enchanted', url: 'https://www.youtube.com/embed/exampleVideoId4'},
+      { name: 'Dear John', url: 'https://www.youtube.com/embed/exampleVideoId4'},
     ],
   },
   {
